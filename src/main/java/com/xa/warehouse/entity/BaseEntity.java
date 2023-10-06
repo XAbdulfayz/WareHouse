@@ -1,4 +1,4 @@
 package com.xa.warehouse.entity;
 
-public interface BaseEntity {
+public class BaseEntity {
 }

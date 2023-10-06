@@ -14,7 +14,7 @@ public class GlobalExceptionHandler {
 
 
     @ExceptionHandler({ChangeSetPersister.NotFoundException.class})
-    public ResponseEntity<Data<APIErrorDTO>> notFoundException(ChangeSetPersister.NotFoundException ex, WebRequest request){
+    public ResponseEntity<Data<APIErrorDTO>> notFoundException(NotFoundException ex, WebRequest request){
         APIErrorDTO path = APIErrorDTO.builder().developerMessage(ex.getStackTrace().toString()).message(ex.getMessage()).status(HttpStatus.NOT_FOUND.value()).path(request.getContextPath()).build();
         return new ResponseEntity<>(new Data<>(path), HttpStatus.OK);
     }
